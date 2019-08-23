@@ -1,0 +1,15 @@
+{#
+ #   Selfie2Anime Blog
+ #   Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+ #}
+
+{# Main Content #}
+<main>
+    {% if is_post() and not page.published %}
+        <div class="py-2 text-center bg-primary text-primary-fg subheading font-weight-bold">
+            Draft
+        </div>
+    {% endif %}
+
+    {{ body|safe }}
+</main>

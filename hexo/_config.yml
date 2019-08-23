@@ -1,0 +1,72 @@
+##
+## Selfie2Anime Blog
+## Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+##
+
+title: Selfie2Anime
+brand: Selfie2Anime
+subtitle:
+description: What do YOU look like in ANIME?
+keywords:
+author: Rico A. Beti
+theme: s2a
+
+url: https://selfie2anime.com/
+email: info@selfie2anime.com
+twitter: RicoBeti
+disqus: selfie2anime
+
+root: /blog
+permalink: :title/
+permalink_defaults:
+
+source_dir: source
+public_dir: ../.deploy/hexo
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: snippets
+i18n_dir: :lang
+skip_render:
+
+new_post_name: :title.md
+default_layout: draft
+titlecase: false
+external_link: true
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: date
+
+default_category: uncategorized
+category_map:
+tag_map:
+
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+per_page: 10
+pagination_dir: page
+
+browsersync:
+  notify: false
+  reloadDelay: 1000
+
+nunjucks:
+  autoescape: true
+
+sitemap:
+  path: sitemap.xml
+  tag: true
+  category: false

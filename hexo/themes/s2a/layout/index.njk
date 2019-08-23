@@ -1,0 +1,11 @@
+{#
+ #   Selfie2Anime Blog
+ #   Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+ #}
+
+{# Default Layout #}
+<div class="container section-container">
+    {% for post in site.posts.toArray()|sort(true, false, 'date') %}
+        {% include 'partials/single-post.njk' %}
+    {% endfor %}
+</div>

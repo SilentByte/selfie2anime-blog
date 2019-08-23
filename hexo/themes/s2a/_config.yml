@@ -1,0 +1,9 @@
+##
+## Selfie2Anime Blog
+## Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+##
+
+node_sass:
+  outputStyle: expanded
+  precision: 6
+  sourceComments: false

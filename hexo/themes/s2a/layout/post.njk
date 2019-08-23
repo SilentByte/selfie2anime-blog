@@ -1,0 +1,85 @@
+{#
+ #   Selfie2Anime Blog
+ #   Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+ #}
+
+{# Single Post Layout #}
+<div class="container section-container">
+    <section>
+        <div class="m-auto">
+            <h1 class="heading">
+                <a href="{{ url_for(page.path) }}">
+                    &ldquo;{{ page.title }}&rdquo;
+                </a>
+            </h1>
+
+            <div class="my-3 mb-1 text-center small">
+                {{ date(page.date, 'MMMM DD, YYYY') }}
+                {% if page.amend %}
+                    ({{ date(page.amend, 'MMMM DD, YYYY') }})
+                {% endif %}
+            </div>
+
+            {% if page.social != false %}
+                {% include 'partials/social.njk' %}
+            {% endif %}
+
+            <div id="content" data-content-type="{{ 'post' if is_post() }}">
+                {{ page.content|safe }}
+            </div>
+
+            {% if page.social != false %}
+                {% include 'partials/social.njk' %}
+            {% endif %}
+
+            {% include 'partials/tags.njk' %}
+
+            {# Navigation is reversed due to sort order. #}
+            <div class="pt-5 row">
+                <div class="col col-6 text-left small">
+                    {% if page.next %}
+                        <a href="{{ url_for(page.next.path) }}">
+                            <div class="row">
+                                <div class="col col-1 text-right">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 448 512"
+                                         height="1em"
+                                         style="margin-top: -4px; margin-right: 4px">
+                                        <path fill="currentColor"
+                                              d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="pr-0 col text-left overflow-ellipsis" title="{{ page.next.title }}">
+                                    {{ page.next.title }}
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="col col-6 small">
+                    {% if page.prev %}
+                        <a href="{{ url_for(page.prev.path) }}">
+                            <div class="row">
+                                <div class="pr-0 col text-right overflow-ellipsis" title="{{ page.prev.title }}">
+                                    {{ page.prev.title }}
+                                </div>
+                                <div class="col col-1 text-left">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 448 512"
+                                         height="1em"
+                                         style="margin-top: -4px; margin-left: 4px">
+                                        <path fill="currentColor"
+                                              d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'partials/disqus.njk' %}
+</div>

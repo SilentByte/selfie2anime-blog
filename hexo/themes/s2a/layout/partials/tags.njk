@@ -1,0 +1,15 @@
+{#
+ #   Selfie2Anime Blog
+ #   Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+ #}
+
+{# Tag List #}
+<div class="my-3 text-center tag-container small">
+    {% if page.tags.length > 0 %}
+        {% for tag in page.tags.toArray()|sort(true, false, 'length') %}
+            <a href="{{ url_for(tag.path) }}" class="mx-1 text-muted font-italic">
+                #{{ tag.name }} ({{ tag.length }})
+            </a>
+        {% endfor %}
+    {% endif %}
+</div>

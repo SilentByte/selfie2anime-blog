@@ -1,0 +1,60 @@
+{#
+ #   Selfie2Anime Blog
+ #   Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+ #}
+
+{# Top Level Layout #}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name="theme-color" content="#455a64">
+    <meta name="description" content="{{ config.description }}">
+
+    <meta property="og:url" content="{{ page.permalink or absolute_url('/') }}" />
+    <meta property="og:type" content="blog" />
+
+    {% if page.title %}
+        <meta property="og:title" content="{{ page.title }} | {{ config.title }}" />
+    {% else %}
+        <meta property="og:title" content="{{ config.title }}" />
+    {% endif %}
+
+    {% if is_post() %}
+        <meta property="og:description" content="{{ page.description }}" />
+        <meta property="og:image" content="{{ absolute_url(url_for_stripped(page.path) + 'thumbnail.png') }}" />
+        <link rel="image_src" type="image/png"href="{{ absolute_url(url_for_stripped(page.path) + 'thumbnail.png') }}" />
+    {% else %}
+        <meta property="og:description" content="{{ config.description }}" />
+        <meta property="og:image" content="{{ absolute_url('thumbnail.png') }}" />
+        <link rel="image_src" type="image/png" href="{{ absolute_url('thumbnail.png') }}" />
+    {% endif %}
+
+    <link rel="icon" type="image/png" href="{{ url_for('/favicon-16x16.png') }}" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ url_for('/favicon-96x96.png') }}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ url_for('/favicon-280x280.png') }}" sizes="280x280">
+    <link rel="apple-touch-icon" href="{{ url_for('/favicon-280x280.png') }}" sizes="152x152">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,400i,700,700i">
+    {{ css('css/style')|safe }}
+
+    {% if page.title %}
+        <title>{{ page.title }} | {{ config.title }}</title>
+    {% else %}
+        <title>{{ config.title }}</title>
+    {% endif %}
+
+    {% include 'partials/analytics.njk' %}
+    {% include 'partials/adsense.njk' %}
+    {% include 'partials/post-list.njk' %}
+</head>
+<body>
+    {% include 'partials/nav.njk' %}
+    {% include 'partials/content.njk' %}
+    {% include 'partials/footer.njk' %}
+
+    {{ js('js/deps')|safe }}
+    {{ js('js/s2a')|safe }}
+</body>
+</html>

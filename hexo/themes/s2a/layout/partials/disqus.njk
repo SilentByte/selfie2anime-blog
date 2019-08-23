@@ -1,0 +1,63 @@
+{#
+ #   Selfie2Anime Blog
+ #   Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+ #}
+
+{# Disqus Comment Section #}
+{% if page.comments and page.published %}
+    <div class="disqus-container">
+        <div id="disqus_thread"></div>
+        <noscript>
+            <div class="text-center">
+                <div class="text-primary heading-font">Sorry! :-/</div>
+                <div class="small">Comments require JavaScript to be turned on.</div>
+            </div>
+        </noscript>
+    </div>
+
+    <!--suppress ES6ConvertVarToLetConst,
+                 JSUnusedLocalSymbols,
+                 JSCheckFunctionSignatures
+    -->
+    <script>
+        var disqus_config = function() {
+            this.page.url = '{{ page.permalink }}';
+            this.page.identifier = '{{ page.permalink }}';
+        };
+
+        (function() {
+            var disqus = {
+                element: document.getElementById('disqus_thread'),
+                loaded: false,
+                load: function() {
+                    var script = document.createElement('script');
+                    script.src = 'https://{{ config.disqus }}.disqus.com/embed.js';
+                    script.setAttribute('data-timestamp', +new Date());
+                    (document.head || document.body).appendChild(script);
+                    this.loaded = true;
+                },
+                offset: function() {
+                    var current = this.element;
+                    var top = 0;
+                    if(current.offsetParent) {
+                        do {
+                            top += current.offsetTop;
+                        } while(current = current.offsetParent);
+                        return top;
+                    }
+                },
+            };
+
+            window.addEventListener('scroll', function() {
+                if(disqus.loaded) {
+                    return;
+                }
+
+                if(!disqus.loaded && window.pageYOffset
+                    > disqus.offset() - window.innerHeight) {
+                    disqus.load();
+                }
+            });
+        })();
+    </script>
+{% endif %}

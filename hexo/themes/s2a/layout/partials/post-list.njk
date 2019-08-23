@@ -1,0 +1,17 @@
+{#
+ #   Selfie2Anime Blog
+ #   Copyright (c) 2019 by SilentByte <https://www.silentbyte.com/>
+ #}
+
+{# JSON Post List #}
+<script>
+    window.s2a = window.s2a || {};
+    window.s2a.posts = [
+        {%- for post in site.posts.toArray() %}
+            {
+                title: '{{ post.title }}',
+                url: '{{ url_for(post.path) }}',
+            },
+        {%- endfor %}
+    ];
+</script>
