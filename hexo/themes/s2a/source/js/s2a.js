@@ -25,8 +25,8 @@ $(document).ready(function() {
             + ' style="display:block;text-align:center;"'
             + ' data-ad-layout="in-article"'
             + ' data-ad-format="fluid"'
-            + ' data-ad-client="ca-pub-XXXX"'
-            + ' data-ad-slot="XXXX">'
+            + ' data-ad-client="ca-pub-9169830803956537"'
+            + ' data-ad-slot="4032721653">'
             + '</ins></p>',
         ).insertBefore(adLocation);
         (window.adsbygoogle || []).push({});
