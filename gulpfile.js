@@ -104,13 +104,15 @@ gulp.task("optimize:html", gulp.series(gulp.parallel("optimize:css", "optimize:j
 // Optimize Image files.
 gulp.task("optimize:images", () => {
     console.log("Optimizing image files");
-    return gulp.src([
+    let stream = gulp.src([
         "**/*.png",
         "**/*.jpg",
         "**/*.jpeg",
         "**/*.gif",
-    ], {cwd: src})
-        .pipe(imagemin([
+    ], {cwd: src});
+
+    if(!process.env.DISABLE_IMAGE_OPTIMIZATION) {
+        stream = stream.pipe(imagemin([
             imagemin.optipng({
                 optimizationLevel: 7,
             }),
@@ -123,8 +125,10 @@ gulp.task("optimize:images", () => {
             }),
         ], {
             verbose: true,
-        }))
-        .pipe(gulp.dest(dist));
+        }));
+    }
+
+    return stream.pipe(gulp.dest(dist));
 });
 
 // Optimize XML Sitemap Files.
