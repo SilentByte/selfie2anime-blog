@@ -25,8 +25,7 @@ Building the website with VueCLI/Webpack through NodeJS and running a few custom
 
 I'd like to finish this first post on the implementation of the system by showing off a few more anime-selfies that have been generated recently. Here they are:
 
-{% figure samples.png Examples of recent anime-selfies %}
-
+{% tweet https://twitter.com/RicoBeti/status/1165287094559723520 %}
 
 [@RicoBeti](https://twitter.com/RicoBeti)
 

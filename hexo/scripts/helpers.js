@@ -91,3 +91,22 @@ hexo.extend.tag.register("figure", function(args) {
     const src = url.resolve("/", hexo.config.root + asset.path);
     return `<a href="${src}" data-toggle="lightbox"><img class="figure" src="${src}" alt="${alt}"></a>`;
 });
+
+hexo.extend.tag.register("tweet", function(args) {
+    const tweet = args.shift();
+    let alt = _.escape(args.join(" "));
+
+    if(!alt) {
+        alt = tweet;
+    }
+
+    return `<div class="twitter-container">
+                <blockquote class="twitter-tweet tw-align-center"
+                            data-theme="light"
+                            data-link-color="#f06292">
+                    <a href="${tweet}">
+                        ${alt}
+                    </a>
+                </blockquote>
+            </div>`
+});
