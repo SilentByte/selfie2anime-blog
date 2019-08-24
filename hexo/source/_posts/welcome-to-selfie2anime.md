@@ -32,6 +32,4 @@ For privacy reasons, of course, we cannot and will not share the original selfie
 
 Stay put for more technical posts coming up on this blog shortly and leave your thoughts, feedback and suggestions in the comments down below.
 
-[@RicoBeti](https://twitter.com/RicoBeti)
-
 {% closing Cheers! :laugh: %}

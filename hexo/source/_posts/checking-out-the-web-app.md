@@ -27,7 +27,5 @@ I'd like to finish this first post on the implementation of the system by showin
 
 {% tweet https://twitter.com/RicoBeti/status/1165287094559723520 %}
 
-[@RicoBeti](https://twitter.com/RicoBeti)
-
 {% closing See you soon for more details on the back-end! %}
 
