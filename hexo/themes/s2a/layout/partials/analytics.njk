@@ -18,12 +18,4 @@
 
     gtag('js', new Date());
     gtag('config', 'UA-71336829-28');
-
-    function trackOutboundUrl(url) {
-        gtag('event', 'click', {
-            event_category: 'outbound',
-            event_label: url,
-            transport_type: 'beacon',
-        });
-    }
 </script>
