@@ -29,9 +29,10 @@
 
 {# Main Top Navigation #}
 <nav class="d-lg-none navbar navbar-dark bg-dark">
-    <a href="{{ url_for(site.path) }}"
+    <a href="https://selfie2anime.com"
        class="navbar-brand">
-        {{ config.brand }}
+        <span class="text-primary-fg">Selfie</span><span class="text-primary">2</span><span class="text-primary-fg">Anime</span>
+        <span class="text-primary">アニメ</span>
     </a>
     <button type="button"
             class="navbar-toggler"
@@ -52,7 +53,7 @@
 
 {# Main Side Navigation #}
 <nav class="d-none d-lg-flex navbar navbar-dark bg-dark side-nav">
-    <a class="navbar-brand" href="{{ url_for(site.path) }}">
+    <a class="navbar-brand" href="https://selfie2anime.com">
         <img src="{{ url_for(site.path) }}brand.png" alt="Selfie2Anime">
     </a>
     <ul class="navbar-nav">
