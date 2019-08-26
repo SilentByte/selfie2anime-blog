@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#455a64">
     <meta name="description" content="{{ config.description }}">
 
-    <meta property="og:url" content="{{ page.permalink or absolute_url('/') }}" />
+    <meta property="og:url" content="{{ page.permalink or absolute_url('/blog') }}" />
     <meta property="og:type" content="blog" />
 
     {% if page.title %}
@@ -24,14 +24,15 @@
     {% if is_post() %}
         <meta property="og:description" content="{{ page.description }}" />
         <meta property="og:image" content="{{ absolute_url(url_for_stripped(page.path) + 'thumbnail.png') }}" />
-        <link rel="image_src" type="image/png" href="{{ absolute_url(url_for_stripped(page.path) + 'thumbnail.png') }}" />
+        <link rel="image_src" type="image/png"
+              href="{{ absolute_url(url_for_stripped(page.path) + 'thumbnail.png') }}" />
     {% else %}
         <meta property="og:description" content="{{ config.description }}" />
-        <meta property="og:image" content="{{ absolute_url('thumbnail.png') }}" />
-        <link rel="image_src" type="image/png" href="{{ absolute_url('thumbnail.png') }}" />
+        <meta property="og:image" content="{{ absolute_url('/blog/thumbnail.png') }}" />
+        <link rel="image_src" type="image/png" href="{{ absolute_url('/blog/thumbnail.png') }}" />
     {% endif %}
 
-    <link rel="canonical" href="{{ page.permalink or absolute_url('/') }}" />
+    <link rel="canonical" href="{{ absolute_url(url_for_stripped(page.permalink)) }}" />
     <link rel="icon" type="image/png" href="{{ url_for('/favicon-16x16.png') }}" sizes="16x16">
     <link rel="icon" type="image/png" href="{{ url_for('/favicon-96x96.png') }}" sizes="96x96">
     <link rel="icon" type="image/png" href="{{ url_for('/favicon-280x280.png') }}" sizes="280x280">
