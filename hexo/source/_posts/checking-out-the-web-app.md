@@ -1,7 +1,7 @@
 ---
 title: Checking Out the Web App
 date: 2019-08-24 21:34:10
-tags: [website, vuejs, webpack, selfies]
+tags: [website, vuejs, webpack, selfies, development]
 description: >
     This post will provide you with some information on how the front-end
     is set up and how it works.

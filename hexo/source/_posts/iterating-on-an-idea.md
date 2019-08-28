@@ -1,7 +1,7 @@
 ---
 title: Iterating on an Idea
 date: 2019-08-24 21:00:00
-tags: [aws, gan, gcp]
+tags: [aws, gan, gcp, development]
 description: >
     The development of Selfie2Anime has had its ups and downs. This post is an overview of the iterations
     we've made along this journey so far and what the plans are for the future.
