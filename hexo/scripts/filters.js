@@ -49,3 +49,21 @@ hexo.extend.generator.register('lunr_index_generator', function() {
         }),
     };
 });
+
+hexo.extend.generator.register('post_index_generator', function() {
+    const posts = hexo.database.model('Post')
+        .find({
+            published: true,
+        })
+        .map((p, i) => ({
+            url: p.permalink,
+            title: p.title,
+            excerpt: striptags(p.excerpt || p.content),
+            date: p.date,
+        }));
+
+    return {
+        path: 'posts.json',
+        data: JSON.stringify(posts),
+    };
+});
