@@ -34,15 +34,15 @@ build_cmd() {
 
 ensure_npm_installs() {
   if [[ ! -d node_modules ]]; then
-    npm install
+    LIBSASS_EXT="no" npm install
   fi
 
   if [[ ! -d hexo/node_modules ]]; then
-    npm --prefix hexo install
+    LIBSASS_EXT="no" npm --prefix hexo install
   fi
 
   if [[ ! -d hexo/themes/s2a/node_modules ]]; then
-    npm --prefix hexo/themes/s2a install
+    LIBSASS_EXT="no" npm --prefix hexo/themes/s2a install
   fi
 }
 
